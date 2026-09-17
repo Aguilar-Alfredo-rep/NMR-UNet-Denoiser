@@ -30,7 +30,7 @@ The notebook cells will explicitly tell you when to upload the following files t
 --------------------------------------------------------------------------------
 3. DATA ALIGNMENT AND PARTITIONING
 
-- Signal Cropping: The notebook asks for a minimum (t_min) and maximum (t_max) time in seconds. All signals are then automatically cropped to this specific temporal window.
+- Signal Cropping: The notebook asks for a minimum (t_min) and maximum (t_max) time in seconds (0 - 0.005 s max.). All signals are then automatically cropped to this specific temporal window.
 - Time Mapping: The length of the amplitude vectors extracted from the individual CSV files inside the FIDs folder must match the length of the temporal vector provided in times.csv. This alignment is handled automatically by the script; the user does not need to manually adjust or format the data.
 - Data Splitting: The script will request an integer (num_train_test) to divide the dataset. All loaded signals are first randomly shuffled. The dataset is then split by allocating the specified number of signals to the training set, leaving the remainder for the test set. Later in the pipeline, after data augmentation, the expanded training block is shuffled again and split (80/20) to create an internal validation set.
 
