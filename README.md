@@ -61,3 +61,7 @@ K. Environment Cleaning: The final cell executes a cleanup routine that deletes 
 
 ================================================================================
 
+--------------------------------------------------------------------------------
+5. Applying Denoising with Saved Models (independent reconstruction post-training):
+
+The scripts denoise_1file.py and denoise_batch.py apply deep learning denoising to independent NMR data using a previously trained model. They load the saved model weights and scaling parameters to reconstruct raw signals or spectra without requiring retraining. The single-file script is designed for isolated evaluation while the batch version automates the inference across entire directories using dynamic format detection to handle different data structures robustly.
