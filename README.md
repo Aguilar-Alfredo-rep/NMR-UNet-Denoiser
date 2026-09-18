@@ -59,9 +59,13 @@ J. Saving and Downloading Results: The model (.h5), scalers (.pkl), hyperparamet
 
 K. Environment Cleaning: The final cell executes a cleanup routine that deletes all decompressed datasets, generated folders, and temporary files from the Colab root, leaving the session empty for a new run.
 
-================================================================================
 
 --------------------------------------------------------------------------------
 5. Applying Denoising with Saved Models (independent reconstruction post-training):
 
 The scripts denoise_1file.py and denoise_batch.py apply deep learning denoising to independent NMR data using a previously trained model. They load the saved model weights and scaling parameters to reconstruct raw signals or spectra without requiring retraining. The single-file script is designed for isolated evaluation while the batch version automates the inference across entire directories using dynamic format detection to handle different data structures robustly.
+
+================================================================================
+# HYPERPARAMETER OPTIMIZATION (OPTUNA)
+
+The Optuna_NMR_Denoiser_search.ipynb notebook implements an automated tuning framework. Data ingestion, temporal cropping, quantile-based scaling, and additive Gaussian noise augmentation are identical to the main NMR-Denoiser pipeline. The fundamental difference resides in the execution loop, which is managed by an Optuna objective function rather than a static training sequence. This function explores a strictly defined discrete search space for architectural variables, including base filters, network depth, kernel size, alongside learning rate sampling and others. Pay close attention to all inline comments throughout the notebooks and scripts, as they provide essential execution guidance, technical warnings, and operational advice.
